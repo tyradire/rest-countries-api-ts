@@ -24,8 +24,8 @@ export const App = () => {
     <div className='app'>
       <Header />
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/:code' element={<Country/>}/>
+        <Route path='/rest-countries-api-ts/' element={<Home/>}/>
+        <Route path='/rest-countries-api-ts/:code' element={<Country/>}/>
       </Routes>
     </div>
   )
