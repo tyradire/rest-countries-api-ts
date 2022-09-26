@@ -1,0 +1,68 @@
+@import '../../variables/variables.scss';
+
+.filter-container {
+  max-width: 1440px;
+  margin: 80px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: $desktop) {
+    max-width: 1280px;
+  }
+  @media screen and (max-width: $laptop) {
+    max-width: 768px;
+  }
+  @media screen and (max-width: $tablet) {
+    max-width: 500px;
+    flex-direction: column;
+  }
+
+
+  .filter-container__form {
+    position: relative;
+    width: 480px;
+    margin: 2em;
+    position: relative;
+    
+    @media screen and (max-width: $mobile) {
+      max-width: 320px;
+    }
+
+    .filter-container__search {
+      width: 100%;
+      padding: .75em;
+      border: none;
+      font-size: 20px;
+      line-height: 20px;
+      box-shadow: 0px 0px 6px var(--shadow);
+      @include outline;
+
+      @media screen and (max-width: $mobile) {
+        width: 320px;
+      }
+    }
+
+    .filter-container__button-reset {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border: none;
+      box-shadow: 0px 0px 6px var(--shadow);
+      background-color: var(--element-bg);
+      @include title;
+      @include outline;
+
+      &:hover {
+        cursor: pointer;
+      }
+      &:disabled {
+        cursor: default;
+        opacity: .4;
+      }
+    }
+  }
+}

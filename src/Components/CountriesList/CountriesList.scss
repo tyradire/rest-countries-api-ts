@@ -1,0 +1,62 @@
+@import '../../variables/variables.scss';
+
+.countries-list {
+  margin: 0 auto;
+  width: 1440px;
+
+  @media screen and (max-width: $desktop) {
+    max-width: 1280px;
+  }
+  @media screen and (max-width: $laptop) {
+    max-width: 768px;
+  }
+  @media screen and (max-width: $tablet) {
+    width: 480px;
+  }
+  @media screen and (max-width: $mobile) {
+    width: 320px;
+  }
+
+  .countries-list__wrapper {
+    height: auto;
+    margin: 0 2em;
+    padding: .75em;
+    display: grid;
+    gap: 70px;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media screen and (max-width: $desktop) {
+      gap: 50px;
+    }
+    @media screen and (max-width: $laptop) {
+      margin: 0;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: $tablet) {
+      padding: 0;
+      grid-template-columns: 530px;
+    }
+    @media screen and (max-width: $mobile) {
+      grid-template-columns: 320px;
+    }
+  }
+
+  .countries-list__button-more {
+    width: 160px;
+    margin: 2em 0;
+    margin-left: calc(50% - 80px);
+    padding: .5em 0;
+    border: none;
+    @include list-item;
+    @include outline; 
+    transition: .1s;
+    color: var(--text);
+    background-color: var(--element-bg);
+
+    &:hover {
+      opacity: .5;
+      cursor: pointer;
+    }
+  }
+}
+

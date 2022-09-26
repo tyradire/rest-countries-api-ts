@@ -1,0 +1,41 @@
+@import '../../variables/variables.scss';
+
+.custom-filter {
+  position: relative;
+  margin: 2em;
+  padding: .75em;
+
+  .custom-filter__button {
+    width: 180px;
+    padding: 14px;
+    background-color: var(--element-bg);
+    @include list-item;
+    @include outline;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .custom-filter__list {
+    position: absolute;
+    width: 180px;
+    top: 68px;
+    left: 12px;
+    list-style: none;
+    background-color: var(--element-bg);
+    @include outline;
+  }
+
+  .custom-filter__item {
+    padding-left: 1em;
+    line-height: 36px;
+    transition: 0;
+    @include list-item;
+
+    &:hover {
+      cursor: pointer;
+      background-color: var(--background);
+    }
+  }
+}
