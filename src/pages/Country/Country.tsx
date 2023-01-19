@@ -44,18 +44,14 @@ const Country = () => {
 
   const {code} = useParams();
   const [countryData, setCountryData] = useState<ICountryPage>();
-  //const [langString, setLangString] = useState('');
   const [borderCountries, setBorderCoutries] = useState<string[]>([]);
   const [newBorders, setNewBorders] = useState<IBorder[]>([]);
-  //const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios.get<ICountryPage>(COUNTRY_API + code)
     .then(({data}) => {
       setCountryData(data);
-      //createLangString(data.languages);
       setBorderCoutries(data.borders);
-      //setIsLoading(false);
       return data.borders ? axios.get<IBorder>(COUNTRY_BY_CODE + data.borders.join(',')) : {}
     })
     .then(({data}:any) => {
@@ -68,14 +64,6 @@ const Country = () => {
   useEffect(() => {
     dispatch(fetchCountry(code) as any)
   }, [code])
-
-  // const createLangString = (arr: {name: string}[]) => {
-  //   let langArr = [];
-  //   for (let i = 0; i < arr.length; i++) {
-  //     langArr.push(arr[i].name)
-  //   }
-  //   setLangString(langArr.join(', '));
-  // }
 
   return (
     <div className='country'>
@@ -101,7 +89,7 @@ const Country = () => {
             <ul className='border-countries__list'>
               { borderCountries ?
                 newBorders.map((elem, index) => {
-                  return <Link style={{ textDecoration: 'none' }} to={`../${elem.alpha3Code}`}  key={index}><li className='border-countries__item'>{elem.name}</li></Link>
+                  return <Link style={{ textDecoration: 'none' }} to={`../rest-countries-api-ts/${elem.alpha3Code}`}  key={index}><li className='border-countries__item'>{elem.name}</li></Link>
                 })
                 : <li className='border-countries__item'>Not Found</li>
               }
