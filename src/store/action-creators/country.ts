@@ -11,7 +11,6 @@ export const fetchCountry = (code: string | undefined) => {
         langArr.push(data.languages[i].name)
       }
       data.langString = langArr.join(', ');
-      console.log(data)
       dispatch({type:'LOAD_COUNTRY_SUCCESS', payload: data})
     })
     .catch(err => console.log(err))
